@@ -1,0 +1,394 @@
+/* Custom styling for The Coastal Atelier */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+:root {
+  --color-primary: #8DA8B8;       /* Sea Mist Blue */
+  --color-secondary: #E8DFC9;     /* Travertine Beige */
+  --color-accent: #BE8C6A;        /* Muted Clay */
+  
+  /* Additional Premium Neutrals */
+  --color-bg-alabaster: #FAF8F5;  /* Warm Alabaster (Main BG) */
+  --color-bg-ivory: #F5F0E6;      /* Soft Ivory (Secondary BG) */
+  --color-text-dark: #2A333A;     /* Soft Charcoal (Never pitch black) */
+  --color-text-muted: #6B7C85;    /* Muted Slate */
+  --color-white: #FFFFFF;
+  
+  /* Font Stacks */
+  --font-serif-editorial: 'Cormorant Garamond', serif;
+  --font-serif-display: 'DM Serif Display', serif;
+  --font-sans-body: 'Manrope', sans-serif;
+  --font-sans-alt: 'Inter', sans-serif;
+  
+  /* Transitions */
+  --transition-slow: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+  --transition-medium: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition-fast: all 0.25s ease;
+}
+
+/* Global Reset & Scroll behavior */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  background-color: var(--color-bg-alabaster);
+  color: var(--color-text-dark);
+  font-family: var(--font-sans-body);
+  font-size: 16px;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg-alabaster);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+}
+
+/* Custom Selection */
+::selection {
+  background-color: var(--color-secondary);
+  color: var(--color-text-dark);
+}
+
+/* Typography Classes */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif-editorial);
+  font-weight: 500;
+  color: var(--color-text-dark);
+  letter-spacing: -0.01em;
+}
+
+.font-serif-display {
+  font-family: var(--font-serif-display);
+}
+
+.font-sans-alt {
+  font-family: var(--font-sans-alt);
+}
+
+.text-muted-custom {
+  color: var(--color-text-muted);
+}
+
+.editorial-title {
+  font-family: var(--font-serif-editorial);
+  font-size: clamp(2.5rem, 5vw, 5.5rem);
+  line-height: 1.1;
+  font-weight: 400;
+}
+
+.editorial-subtitle {
+  font-family: var(--font-sans-body);
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  font-weight: 300;
+  line-height: 1.7;
+  letter-spacing: 0.02em;
+}
+
+/* Custom Luxury Buttons */
+.btn-atelier {
+  font-family: var(--font-sans-alt);
+  font-weight: 500;
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.9rem 2.2rem;
+  border-radius: 0;
+  transition: var(--transition-medium);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn-atelier-primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: 1px solid var(--color-primary);
+}
+
+.btn-atelier-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-accent);
+  z-index: -1;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.btn-atelier-primary:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.btn-atelier-primary:hover {
+  color: var(--color-white);
+  border-color: var(--color-accent);
+}
+
+.btn-atelier-secondary {
+  background-color: transparent;
+  color: var(--color-text-dark);
+  border: 1px solid var(--color-text-dark);
+}
+
+.btn-atelier-secondary:hover {
+  background-color: var(--color-text-dark);
+  color: var(--color-bg-alabaster);
+}
+
+.btn-atelier-accent {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  border: 1px solid var(--color-accent);
+}
+
+.btn-atelier-accent:hover {
+  background-color: transparent;
+  color: var(--color-accent);
+}
+
+/* Luxury Interactive Cursor */
+.custom-cursor {
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--color-accent);
+  border-radius: 50%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
+}
+
+.custom-cursor-dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 10000;
+  transition: transform 0.1s ease;
+}
+
+/* Glassmorphism Panel */
+.glass-panel {
+  background: rgba(250, 248, 245, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(232, 223, 201, 0.4);
+}
+
+/* Material Texture Reveal */
+.material-card {
+  position: relative;
+  overflow: hidden;
+  height: 320px;
+  border: 1px solid rgba(232, 223, 201, 0.4);
+  background-color: var(--color-bg-ivory);
+  transition: var(--transition-slow);
+  cursor: pointer;
+}
+
+.material-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition-slow);
+  filter: grayscale(15%) contrast(95%);
+}
+
+.material-card:hover .material-card-img {
+  transform: scale(1.1);
+  filter: grayscale(0%) contrast(100%);
+}
+
+.material-card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem;
+  background: linear-gradient(transparent, rgba(42, 51, 58, 0.8));
+  color: var(--color-white);
+  transform: translateY(30%);
+  transition: var(--transition-medium);
+}
+
+.material-card:hover .material-card-overlay {
+  transform: translateY(0);
+}
+
+/* Design Journey Path */
+.journey-path {
+  position: relative;
+  padding: 4rem 0;
+}
+
+.journey-step {
+  position: relative;
+  padding-left: 2rem;
+  border-left: 1px solid var(--color-secondary);
+  margin-bottom: 2.5rem;
+  transition: var(--transition-medium);
+}
+
+.journey-step::before {
+  content: '';
+  position: absolute;
+  left: -5px;
+  top: 6px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+  transition: var(--transition-medium);
+}
+
+.journey-step.active {
+  border-left-color: var(--color-primary);
+}
+
+.journey-step.active::before {
+  background-color: var(--color-primary);
+  transform: scale(1.5);
+}
+
+/* Masonry Layout */
+.masonry-grid {
+  display: flex;
+  margin-left: -15px; /* gutter size offset */
+  width: auto;
+}
+
+.masonry-col {
+  padding-left: 15px; /* gutter size */
+  background-clip: padding-box;
+}
+
+.masonry-item {
+  margin-bottom: 15px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+
+.masonry-item img {
+  width: 100%;
+  display: block;
+  transition: var(--transition-slow);
+}
+
+.masonry-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Floating Project Card Animation class */
+.floating-card {
+  transition: transform 0.1s ease-out;
+}
+
+/* Curved Scroll Indicator Line */
+.scroll-indicator-line {
+  position: relative;
+  height: 60px;
+  width: 1px;
+  background-color: var(--color-text-muted);
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.scroll-indicator-line::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-accent);
+  animation: scrollDown 2s cubic-bezier(0.15, 0.85, 0.35, 1) infinite;
+}
+
+@keyframes scrollDown {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+/* Custom preloader styles */
+.preloader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--color-bg-alabaster);
+  z-index: 10000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.preloader-brand {
+  font-family: var(--font-serif-editorial);
+  font-size: 2.5rem;
+  letter-spacing: 0.1em;
+  color: var(--color-text-dark);
+  text-transform: uppercase;
+}
+
+.preloader-line {
+  width: 150px;
+  height: 1px;
+  background-color: var(--color-secondary);
+  margin-top: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.preloader-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--color-accent);
+  animation: preloader-loading 1.8s ease-in-out infinite;
+  transform-origin: left;
+}
+
+@keyframes preloader-loading {
+  0% { transform: scaleX(0); }
+  50% { transform: scaleX(1); }
+  100% { transform: scaleX(0); transform-origin: right; }
+}
+
+/* Responsive Overrides */
+@media (max-width: 768px) {
+  .editorial-title {
+    font-size: 2.2rem;
+  }
+  .btn-atelier {
+    padding: 0.75rem 1.75rem;
+  }
+}
