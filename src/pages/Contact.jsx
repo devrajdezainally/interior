@@ -94,11 +94,11 @@ const Contact = () => {
                 </li>
                 <li className="d-flex align-items-center mb-3">
                   <Phone size={18} className="text-accent me-3" style={{ color: 'var(--color-accent)' }} />
-                  <span>+1 (310) 555-8930</span>
+                  <span>+91 9102462411</span>
                 </li>
                 <li className="d-flex align-items-center mb-3">
                   <Mail size={18} className="text-accent me-3" style={{ color: 'var(--color-accent)' }} />
-                  <span>hello@coastalatelier.design</span>
+                  <span>[EMAIL_ADDRESS]</span>
                 </li>
                 <li className="d-flex align-items-start mb-3">
                   <Clock size={18} className="text-accent me-3 mt-1" style={{ color: 'var(--color-accent)' }} />
@@ -132,7 +132,7 @@ const Contact = () => {
               >
                 <MapPin size={28} className="text-accent mb-2" style={{ color: 'var(--color-accent)' }} />
                 <span className="font-sans-alt text-uppercase text-muted-custom" style={{ fontSize: '0.7rem', letterSpacing: '0.1em' }}>Interactive map block</span>
-                <span className="font-serif-editorial text-dark mt-1">Malibu, California Coastline</span>
+                <span className="font-serif-editorial text-dark mt-1">Hyderabad Telangana</span>
               </div>
             </Col>
 

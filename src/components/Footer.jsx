@@ -141,11 +141,11 @@ const Footer = () => {
               Contact
             </h5>
             <p className="font-sans-alt mb-4 text-muted-custom" style={{ fontSize: '0.85rem', lineHeight: '1.6' }}>
-              104 Ocean Drive, Malibu, CA 90265
+              Hyderabad Telangana
               <br />
-              hello@coastalatelier.design
+              [EMAIL_ADDRESS]
               <br />
-              +1 (310) 555-8930
+              +91 9102462411
             </p>
             <div className="d-flex gap-3 align-items-center">
               <a href="https://instagram.com" target="_blank" rel="noreferrer" className="text-dark hover-opacity-70" aria-label="Instagram">
