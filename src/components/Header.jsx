@@ -31,7 +31,7 @@ const Header = () => {
     { name: 'About', path: '/about' },
     { name: 'Services', path: '/services' },
     { name: 'Portfolio', path: '/portfolio' },
-    { name: 'Material Studio', path: '/material-studio' },
+    { name: 'Materials', path: '/material-studio' },
     { name: 'Blog', path: '/blog' },
     { name: 'Testimonials', path: '/testimonials' },
     { name: 'Contact', path: '/contact' }
@@ -44,7 +44,7 @@ const Header = () => {
       expanded={expanded}
       onToggle={setExpanded}
       className={`py-3 transition-all duration-500 ${
-        scrolled 
+        scrolled || expanded
           ? 'glass-panel shadow-sm bg-opacity-95' 
           : 'bg-transparent'
       }`}
@@ -99,7 +99,7 @@ const Header = () => {
                   key={link.name}
                   as={Link}
                   to={link.path}
-                  className={`px-3 py-2 text-uppercase font-sans-alt transition-all`}
+                  className={`px-3 py-2 text-uppercase font-sans-alt transition-all text-nowrap`}
                   style={{
                     fontSize: '0.75rem',
                     letterSpacing: '0.15em',

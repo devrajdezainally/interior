@@ -392,3 +392,287 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0.75rem 1.75rem;
   }
 }
+
+/* WhatsApp Floating Pulse Button */
+.whatsapp-btn-pulse {
+  animation: whatsapp-glow 2.5s infinite;
+}
+
+@keyframes whatsapp-glow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(190, 140, 106, 0.5);
+  }
+  75% {
+    box-shadow: 0 0 0 15px rgba(190, 140, 106, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(190, 140, 106, 0);
+  }
+}
+
+/* Hero Split Gradient Overlay */
+.hero-gradient-overlay {
+  background: linear-gradient(90deg, #FAF8F5 0%, #FAF8F5 35%, rgba(250, 248, 245, 0.92) 55%, rgba(250, 248, 245, 0) 100%);
+}
+
+@media (max-width: 991px) {
+  .hero-gradient-overlay {
+    background: rgba(250, 248, 245, 0.72) !important; /* Uniform soft cream wash so the background image is visible but typography remains highly readable */
+  }
+}
+
+/* Premium Layout & Bootstrap Overrides */
+.bg-light {
+  background-color: var(--color-bg-ivory) !important;
+}
+
+.border-light {
+  border-color: rgba(141, 168, 184, 0.15) !important;
+}
+
+.py-9 {
+  padding-top: 8.5rem !important;
+  padding-bottom: 8.5rem !important;
+}
+
+.py-10 {
+  padding-top: 10rem !important;
+  padding-bottom: 10rem !important;
+}
+
+@media (max-width: 768px) {
+  .py-10 {
+    padding-top: 6rem !important;
+    padding-bottom: 6rem !important;
+  }
+}
+
+.py-8 {
+  padding-top: 6.5rem !important;
+  padding-bottom: 6.5rem !important;
+}
+
+/* Luxury Link Hover Underline */
+.hover-accent {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.hover-accent:hover {
+  color: var(--color-accent) !important;
+}
+
+/* Philosophy Section Accent */
+.home-page .py-9.bg-white.text-center h2 {
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+}
+
+/* Interactive custom cards */
+.glass-panel {
+  border-radius: 0 !important; /* Retain architectural clean straight cuts */
+}
+
+/* Redesigned Living Masterpieces Grid & Overlay */
+.project-card-container {
+  display: block;
+  text-decoration: none;
+}
+
+.masterpiece-card-image-wrap {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-bg-ivory);
+  transition: var(--transition-medium);
+  border: 1px solid rgba(141, 168, 184, 0.1);
+}
+
+.masterpiece-height-tall {
+  height: 550px;
+}
+
+.masterpiece-height-short {
+  height: 440px;
+}
+
+.masterpiece-height-mobile {
+  height: 380px;
+}
+
+/* Zoom effect on card hover */
+.project-card-container:hover .img-hover-zoom {
+  transform: scale(1.04);
+}
+
+.img-hover-zoom {
+  transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Premium overlay effect */
+.masterpiece-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(42, 51, 58, 0.45); /* Subtle dark overlay */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2.5rem;
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  backdrop-filter: blur(2px);
+}
+
+.project-card-container:hover .masterpiece-card-overlay {
+  opacity: 1;
+}
+
+.masterpiece-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--color-bg-alabaster);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.badge-divider {
+  color: var(--color-accent);
+}
+
+.masterpiece-overlay-title {
+  color: var(--color-white);
+  font-size: 1.6rem;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.35);
+  padding-bottom: 0.6rem;
+  align-self: flex-start;
+  transform: translateY(15px);
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.project-card-container:hover .masterpiece-overlay-title {
+  transform: translateY(0);
+}
+
+/* Typography styles for details */
+.masterpiece-details {
+  border-top: 1px solid rgba(141, 168, 184, 0.1);
+  padding-top: 1.25rem;
+}
+
+.masterpiece-category {
+  color: var(--color-accent);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  font-weight: 600;
+}
+
+.masterpiece-title {
+  color: var(--color-text-dark);
+  font-size: 1.35rem;
+  font-weight: 400;
+  margin-top: 0.25rem;
+  transition: color 0.3s ease;
+}
+
+.project-card-container:hover .masterpiece-title {
+  color: var(--color-accent);
+}
+
+.masterpiece-location {
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+
+/* CTA Button Group Responsive Layout */
+.cta-btn-group {
+  margin-top: 2.5rem;
+}
+
+@media (max-width: 576px) {
+  .cta-btn-group {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 1rem !important;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1rem;
+  }
+  
+  .cta-btn-group .btn-atelier {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Responsive Mobile Menu Drawer Styling */
+@media (max-width: 991px) {
+  .navbar-collapse {
+    background-color: var(--color-bg-alabaster) !important;
+    padding: 1.5rem 2rem !important;
+    margin-top: 1rem !important;
+    box-shadow: 0 15px 35px rgba(42, 51, 58, 0.08) !important;
+    border: 1px solid rgba(141, 168, 184, 0.15) !important;
+    border-radius: 0 !important; /* Retain architectural clean cuts */
+  }
+
+  .navbar-collapse .nav-link {
+    padding: 0.8rem 0 !important;
+    border-bottom: 1px solid rgba(141, 168, 184, 0.1) !important;
+    font-size: 0.85rem !important;
+    letter-spacing: 0.2em !important;
+    color: var(--color-text-dark) !important;
+    text-align: left !important;
+  }
+
+  .navbar-collapse .nav-link:last-of-type {
+    border-bottom: none !important;
+  }
+  
+  .navbar-collapse .btn-atelier {
+    margin-top: 1rem !important;
+    width: 100% !important;
+    text-align: center !important;
+  }
+}
+
+/* Hero Typography Colors (Inspired by high-contrast Ivory & Co style) */
+.hero-title {
+  color: #141A1E !important; /* Extremely deep slate charcoal (high-end black) */
+  font-weight: 500 !important;
+}
+
+.hero-subtitle {
+  color: #2F3E49 !important; /* Rich, dark slate-grey with high readability contrast */
+  line-height: 1.7 !important;
+  font-weight: 500 !important;
+}
+
+.hero-label {
+  color: #A07251 !important; /* Slightly richer clay accent with higher visibility */
+  letter-spacing: 0.25em !important;
+  font-weight: 700 !important;
+}
+
+.hero-btn-link {
+  color: #141A1E !important;
+  border-bottom: 2px solid #BE8C6A !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.2em !important;
+}
+
+.hero-btn-link:hover {
+  color: #BE8C6A !important;
+  border-bottom-color: #141A1E !important;
+}
+
