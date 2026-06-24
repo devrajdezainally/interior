@@ -676,3 +676,14 @@ h1, h2, h3, h4, h5, h6 {
   border-bottom-color: #141A1E !important;
 }
 
+/* Scroll Performance Improvements (Parallax Attachment Fix) */
+.cta-parallax-section {
+  background-attachment: fixed;
+}
+
+@media (max-width: 991px) {
+  .cta-parallax-section {
+    background-attachment: scroll !important; /* Prevents heavy repaint lag on mobile scroll tracks */
+  }
+}
+

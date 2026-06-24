@@ -138,6 +138,7 @@ const Home = () => {
 
   // Journey steps toggle based on scroll location (mock scroll progress helper)
   useEffect(() => {
+    let lastStep = -1;
     const handleScroll = () => {
       const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
       // Map 35% - 60% scroll to journey steps
@@ -146,10 +147,13 @@ const Home = () => {
           Math.floor(((scrollPercent - 30) / 35) * journeySteps.length),
           journeySteps.length - 1
         );
-        setActiveStep(stepIndex);
+        if (stepIndex !== lastStep) {
+          lastStep = stepIndex;
+          setActiveStep(stepIndex);
+        }
       }
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -740,12 +744,11 @@ const Home = () => {
 
       {/* 9. Final Call to Action */}
       <section 
-        className="py-10 text-center text-white position-relative" 
+        className="py-10 text-center text-white position-relative cta-parallax-section" 
         style={{
           backgroundImage: 'linear-gradient(rgba(42, 51, 58, 0.45), rgba(42, 51, 58, 0.45)), url(https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=80)',
           backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed'
+          backgroundPosition: 'center'
         }}
       >
         <Container className="position-relative" style={{ zIndex: 1 }}>
